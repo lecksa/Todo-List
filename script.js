@@ -26,13 +26,18 @@ let arr = []
 //     console.log(lists);
 // }
 
+
+
 submit.onclick = () => {
+    
     if (todo.value.trim() !== '') {
         // let value = todo.value.trim()
         // let time = new Date().toLocaleTimeString()
+        // let random = Math.round(Math.random() * 246)
         let value_time = {
             value: todo.value.trim(),
-            time: new Date().toLocaleTimeString()
+            time: new Date().toLocaleTimeString(),
+            id: Math.round(Math.random() * 246)
         }
 
         arr.push(value_time)

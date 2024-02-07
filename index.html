@@ -82,6 +82,12 @@
             gap: 20px;
             padding-top: 18px;
 
+            h2 {
+                font-size: 14px;
+                font-weight: 600;
+                color: black;
+            }
+
             .box {
                 width: 382px;
                 height: fit-content;
@@ -141,15 +147,15 @@
 
 <body>
     <!-- <form name="todolist"> -->
-        <div class="list">
-            <h1>Todo List</h1>
-            <div class="btns">
-                <input type="text" placeholder="Your Todo" id="todo">
-                <button type="submit" id="submit">Add</button>
-            </div>
+    <div class="list">
+        <h1>Todo List</h1>
+        <div class="btns">
+            <input type="text" placeholder="Your Todo" id="todo" autocomplete="off">
+            <button type="submit" id="submit">Add</button>
         </div>
+    </div>
 
-        <div class="wrap"></div>
+    <div class="wrap"></div>
     <!-- </form> -->
 
     <script type="module" src="./script.js"></script>
