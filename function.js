@@ -24,7 +24,25 @@ export function reload(place, your_list) {
 
         btn.onclick = () => {
             your_list.splice(your_list.indexOf(item), 1)
-            box.remove()
+
+            box.classList.add('animation')
+
+            setTimeout(() => {
+                box.remove()
+            }, 500)
+        }
+
+        box.ondblclick = () => {
+            let dbl = prompt('Измените свой таск')
+            if(dbl.trim() !== ""){
+                item.value = dbl
+                h1.innerHTML = item.value
+                reload(wrap, arr)
+            }
+        }
+
+        h1.onclick = () => {
+            h1.style.textDecoration = "line-through"
         }
     }
 }
