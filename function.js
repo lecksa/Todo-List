@@ -34,7 +34,7 @@ export function reload(place, your_list) {
 
         box.ondblclick = () => {
             let dbl = prompt('Измените свой таск')
-            if(dbl.trim() !== ""){
+            if (dbl.trim() !== "") {
                 item.value = dbl
                 h1.innerHTML = item.value
                 reload(wrap, arr)
@@ -42,7 +42,17 @@ export function reload(place, your_list) {
         }
 
         h1.onclick = () => {
-            h1.style.textDecoration = "line-through"
+            let extr = true
+            if (item.status === false) {
+                h1.classList.add("line")
+                item.status = extr
+                // reload(wrap, arr)
+            } else {
+                h1.classList.remove("line")
+                item.status = false
+                // reload(wrap, arr)
+            }
         }
+console.log(your_list);
     }
 }
