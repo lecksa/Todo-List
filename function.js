@@ -22,6 +22,10 @@ export function reload(place, your_list) {
         box.append(text, p, h2)
         text.append(h1, btn)
 
+        if(item.status){
+            p.classList.add('line')
+        }
+
         btn.onclick = () => {
             your_list.splice(your_list.indexOf(item), 1)
 
@@ -37,20 +41,16 @@ export function reload(place, your_list) {
             if (dbl.trim() !== "") {
                 item.value = dbl
                 h1.innerHTML = item.value
-                reload(wrap, arr)
             }
         }
 
         h1.onclick = () => {
-            let extr = true
             if (item.status === false) {
                 h1.classList.add("line")
-                item.status = extr
-                // reload(wrap, arr)
+                item.status = true
             } else {
                 h1.classList.remove("line")
                 item.status = false
-                // reload(wrap, arr)
             }
         }
 console.log(your_list);
