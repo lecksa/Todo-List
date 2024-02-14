@@ -127,8 +127,8 @@
                         text-decoration: none;
                     }
 
-                    .line{
-                        text-decoration: line-through !important;
+                    .line {
+                        text-decoration: line-through red !important;
                     }
 
                     button {
@@ -163,10 +163,102 @@
                 }
             }
         }
+
+        dialog {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            border: none;
+            padding: 20px;
+            border-radius: 12px;
+            outline: none;
+
+            .inner {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                span {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: black;
+                }
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    input {
+                        width: fit-content;
+                        border-radius: 5px;
+                        padding: 4px;
+                        border: 2px solid rgb(77, 77, 202);
+                        outline: none;
+                        cursor: pointer;
+                    }
+
+                    #second {
+                        border-radius: 10px;
+                        border: 2px solid rgb(70, 70, 212);
+                        background-color: rgb(70, 70, 212);
+                        outline: none;
+                        font-size: 18px;
+                        font-weight: 500;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        cursor: pointer;
+                        transition: .5s ease;
+                    }
+
+                    #second:hover {
+                        background-color: rgb(55, 55, 153);
+                    }
+
+                    #second:active {
+                        background-color: rgb(30, 30, 112);
+                    }
+                }
+
+                #first {
+                    width: 50px;
+                    border-radius: 5px;
+                    border: 2px solid rgb(0, 0, 0);
+                    background-color: rgb(0, 0, 0);
+                    outline: none;
+                    font-size: 16px;
+                    font-weight: 500;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    cursor: pointer;
+                    transition: .5s ease;
+                    position: absolute;
+                    top: 20px;
+                    right: 10px;
+                }
+            }
+        }
     </style>
 </head>
 
 <body>
+
+    <dialog data-modal>
+        <div class="inner">
+            <span>Change task to:</span>
+            <button id="first">Close</button>
+            <form name="change">
+                <input type="" name="task" id="">
+                <button id="second">Save</button>
+            </form>
+        </div>
+    </dialog>
+
     <!-- <form name="todolist"> -->
     <div class="list">
         <h1>Todo List</h1>

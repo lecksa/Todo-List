@@ -1,3 +1,21 @@
+let dialog = document.querySelector('[data-modal]')
+let form_module = document.forms.change
+
+import { arr } from "./script.js"
+import { wrap } from "./script.js"
+let ids
+
+form_module.onsubmit = (e) => {
+    e.preventDefault()
+    let data = new FormData(form_module).get('task')
+
+    let finded = arr.find(el => el.id === ids)
+
+    finded.value = data
+
+    reload(wrap, arr)
+}
+
 export function reload(place, your_list) {
     place.innerHTML = ""
 
@@ -22,7 +40,7 @@ export function reload(place, your_list) {
         box.append(text, p, h2)
         text.append(h1, btn)
 
-        if(item.status){
+        if (item.status === true) {
             p.classList.add('line')
         }
 
@@ -37,22 +55,22 @@ export function reload(place, your_list) {
         }
 
         box.ondblclick = () => {
-            let dbl = prompt('Измените свой таск')
-            if (dbl.trim() !== "") {
-                item.value = dbl
-                h1.innerHTML = item.value
-            }
+            dialog.showModal()
+            // if (dbl.trim() !== "") {
+            //     item.value = dbl
+            //     h1.innerHTML = item.value
+            // }
+            ids = item.id
         }
 
         h1.onclick = () => {
-            if (item.status === false) {
-                h1.classList.add("line")
-                item.status = true
-            } else {
+            if (item.status === true) {
                 h1.classList.remove("line")
                 item.status = false
+            } else {
+                h1.classList.add("line")
+                item.status = true
             }
         }
-console.log(your_list);
     }
 }

@@ -1,18 +1,26 @@
 import { reload } from "./function.js"
 
-let wrap = document.querySelector('.wrap')
+export let wrap = document.querySelector('.wrap')
 let submit = document.querySelector('#submit')
 let todo = document.querySelector('#todo')
 
-let arr = []
+let dialog = document.querySelector('[data-modal]')
+
+let close = document.querySelector('#first')
+
+close.onclick = () => {
+    dialog.close()
+}
+
+export let arr = []
 
 submit.onclick = () => {
     
     if (todo.value.trim() !== '') {
         let value_time = {
             value: todo.value.trim(),
-            time: new Date().toLocaleTimeString(),
-            id: Math.random(),
+            time: new Date().toLocaleTimeString('uz-UZ'),
+            id: Math.random().toFixed(2),
             status: false
         }
 
@@ -21,3 +29,4 @@ submit.onclick = () => {
         todo.value = ''
     }
 }
+
